@@ -1,0 +1,8 @@
+# with python 3
+python demo_webcam.py -n prn
+
+# yolov4
+python demo_webcam.py -s 608
+
+# yolov4-tiny
+python demo_webcam.py -n tiny

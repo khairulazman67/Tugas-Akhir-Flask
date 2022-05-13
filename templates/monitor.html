@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}" />
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+    <link rel='stylesheet' href="{{ url_for('static', filename='fontawesome/css/fontawesome.min.css')}}">
+
+    <script src="{{ url_for('static', filename='fontawesome/js/fontawesome.js')}}"></script>
+
+    <script src="{{ url_for('static', filename='fontawesome/js/solid.js')}}"></script>
+    
+    <title>Monitor</title>
+</head>
+<body>
+    <div class="     mx-auto mb-10 px-40">
+        <!-- tulisan atas -->
+        <div class="mt-2">
+            <div class="flex justify-center text-secondary-900 font-bold text-2xl">
+                Sistem Deteksi Physical Distancing dan Wajah Bermasker
+            </div>
+            <div class="flex justify-center text-primary-900 font-bold text-xl">
+                Menggunakan Metode You Only Look Once (YOLO)
+            </div>
+        </div>
+        <div class="w-full bg-secondary-300 h-2 mt-3"></div>
+
+        <!-- view kamera -->
+        <div class="flex flex-row h-full justify-center">
+            <div class="px-6 w-full h-full">
+                <div class="w-full h-full shadow-lg rounded-xl shadow-gray-400 mt-5">
+                    <div class="bg-secondary-900 rounded-t-xl px-10 py-3 text-center">
+                        <h1 class="font-bold text-white text-xl">Detaksi Pengguna Masker</h1>
+                    </div>
+                    <div class="flex justify-center">
+                        <img src="{{ url_for('video_feed1') }}" class="w-full rounded-b-xl"  alt="">
+                    </div>
+                    
+                    <!-- <div class="h-[26rem] bg-white">
+                        
+                    </div> -->
+                </div>
+            </div>
+            <div class="px-6 w-full h-full">
+                <div class="w-full  h-auto shadow-lg rounded-xl shadow-gray-400 mt-5 text-center">
+                    <div class="bg-secondary-900 rounded-t-xl px-10 py-3">
+                        <h1 class="font-bold text-white text-xl">Deteksi Social Distancing</h1>
+                    </div>
+                    <div class="flex justify-center">
+                        <img src="{{ url_for('video_feed1') }}" class="w-full rounded-b-xl"  alt="">
+                    </div>
+                    
+                    <!-- <div class="h-[26rem] bg-white">
+                        
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
+
