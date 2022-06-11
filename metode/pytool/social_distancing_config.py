@@ -1,5 +1,5 @@
 # base path to YOLO directory
-MODEL_PATH = "models/yolo-coco"
+MODEL_PATH = "metode/models/yolo-coco"
 
 # initialize minimum probability to filter weak detections along with
 # the threshold when applying non-maxima suppression

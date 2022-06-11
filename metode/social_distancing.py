@@ -3,13 +3,6 @@
 # python social_distance_detector.py --input input1.mp4 --output output1.mp4
 
 # import the necessary packages
-
-# imutils==0.5.3
-# numpy==1.18.5
-# opencv-python==4.2.0.34
-# pkg-resources==0.0.0
-# scipy==1.4.1
-
 from pytool import social_distancing_config as config
 from pytool.detection import detect_people
 from scipy.spatial import distance as dist
