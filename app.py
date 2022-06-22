@@ -18,7 +18,7 @@ import string
 import random
 import os
 # from playsound import playsound
-import winsound
+# import winsound
 import requests
 # from flask_assets import Bundle, Environment
 
@@ -35,7 +35,7 @@ def gen_frames1():
     ap.add_argument('-c', '--confidence', default=0.5, help='Confidence for yolo')
     args = ap.parse_args()
 
-    directory = r'F:\A. Tugas Akhir\A Projek\TA_laravel\public\imgpelanggaran'
+    directory = r'/Users/khairulazman/Kuliah/TA/Projek/TA_Laravel/public/imgpelanggaran'
 
     classes = ["good", "bad", "1857301038"]
     # datamhs = null
@@ -46,7 +46,7 @@ def gen_frames1():
     #     print('Input berhasil ',response.data.text)
     # else :
     #     print('gagal')
-    # return 
+    # return
     print("loading yolov3-tiny-prn...")
     yolo = YOLO("metode/models/mask-yolov3-tiny-prn.cfg", "metode/models/mask-yolov3-tiny-prn.weights", classes)
 
@@ -220,12 +220,14 @@ def gen_frames2():
             if i in violate:
                 print('terdeteksi')
                 # playsound('alarm.mp3')
-                freq = 100
-                dur = 50
-                for i in range(0, 5):    
-                    winsound.Beep(freq, dur)    
-                    freq+= 100
-                    dur+= 50
+
+                # freq = 100
+                # dur = 50
+                # for i in range(0, 5):    
+                #     winsound.Beep(freq, dur)    
+                #     freq+= 100
+                #     dur+= 50
+                
                 color = (0, 0, 255)
 
             # draw (1) a bounding box around the person and (2) the
@@ -244,13 +246,12 @@ def gen_frames2():
         if args["display"] > 0:
             # show the output frame
             # cv2.imshow("Frame", frame)
-            
             grabbed,buffer =cv2.imencode('.jpg', frame)
             grabbed, frame = vs.read()
             frame2=buffer.tobytes()
             yield(b'--frame\r\n'
-				b'Content-Type:image/jpeg\r\n\r\n'+ frame2 + b'\r\n')	
-    
+				b'Content-Type:image/jpeg\r\n\r\n'+ frame2 + b'\r\n')
+
             key = cv2.waitKey(1) & 0xFF
 
             # if the `q` key was pressed, break from the loop
@@ -294,8 +295,6 @@ def login():
 def detailPelanggaran():
 	return render_template("detailPelanggaran.html")
 
-
-
 @app.route('/video_feed1')
 def video_feed1():
     return Response(gen_frames1(), mimetype='multipart/x-mixed-replace; boundary=frame')
@@ -303,7 +302,6 @@ def video_feed1():
 @app.route('/video_feed2')
 def video_feed2():
     return Response(gen_frames2(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
 
 if __name__ == '__main__':
 	app.run(debug=True)
